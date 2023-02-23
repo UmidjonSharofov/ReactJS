@@ -1,0 +1,43 @@
+
+header{
+    background-image: url('./assets/img/banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 310px;
+    
+}
+
+/* -------------header2 */
+
+/* --------------header3 */
+.header3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+}
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 18px rgba(33, 39, 60, 0.12);
+    border-radius: 50px;
+}
+.name p{
+    font-weight: 600;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+color: #9DA1B4;
+}
+
+.name .black{
+    color: black;
+}
+.name .blue {
+    color: #6347F9;
+}

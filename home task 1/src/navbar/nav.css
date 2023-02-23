@@ -1,0 +1,45 @@
+nav,header,section{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.navbar_wraper{
+    width: 100%;
+    padding: 20px 80px;
+    border: 1px solid black;
+   gap: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.nav_ime{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.nav_ime a{
+    text-decoration: none;
+   color: var(--primary-black);
+
+}
+.btn{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.btn .btne{
+width: 120px;
+height: 40px;
+border: none;
+background: var(--primary-bule);
+border-radius: 4px;
+color:var(--primary-white);
+}
+.btn .login{
+   background: var(--primary-white);
+   color: var(--primary-black);
+}

@@ -30,8 +30,6 @@ class Yosh extends React.Component {
           <button onClick={clic}>Transfer</button>
         </div>
         <h3>{this.state.count}</h3>
-        <a href="https://github.com/UmidjonSharofov/ReactJS.git">Github</a>
-
       </div>
     );
   }

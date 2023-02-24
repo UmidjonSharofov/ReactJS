@@ -11,16 +11,13 @@
     text-align: center;
     color: red;
 }
-.box input {
-  background-color:blue;
+input {
   height: 20px;
   width: 150px;
   border-radius: 3px;
-  border: none;
-  color: #fff;
 }
 input:hover {
-  box-shadow:  0 0px 20px blue;
+  box-shadow:  0 0px 10px black;
 
 }
 button {

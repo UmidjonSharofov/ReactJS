@@ -1,5 +1,33 @@
-.dollor{
+.box{
     display: flex;
     padding: 50px;
     gap: 10px;
+    align-items: center;
+    justify-content: center;
+    color:blue;
+    font-size: 15px;
+}
+.h2{
+    text-align: center;
+    color: red;
+}
+input {
+  height: 20px;
+  width: 150px;
+  border-radius: 3px;
+}
+input:hover {
+  box-shadow:  0 0px 10px black;
+
+}
+button {
+    background-color:black;
+    height: 20px;
+    width: 100px;
+    border-radius: 3px;
+    border:none;
+    color: rgb(255, 255, 255);
+}
+button:hover{
+    box-shadow:  0 0px 20px black; 
 }

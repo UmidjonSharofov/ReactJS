@@ -1,0 +1,11 @@
+.box h2{
+    text-align: center;
+    padding: 20px 0;
+    color: red;
+}
+a {
+    text-decoration: none;
+    padding-left: 48%;
+    font-size: 20px;
+    color: red;
+}

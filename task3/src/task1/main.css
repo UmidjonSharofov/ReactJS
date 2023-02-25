@@ -1,0 +1,25 @@
+.boxes{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    color:rgb(59, 59, 220);
+}
+.boxes input , select  {
+    width: 130px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color:cornflowerblue;
+    color: white;
+    margin-left: 5px;
+}
+.boxes select:hover, input:hover  {
+    background-color: red;
+    border: none;
+    color: black;
+}
+.boxes input::backdrop {
+    padding-left:5px;
+}

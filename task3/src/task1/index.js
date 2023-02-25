@@ -73,9 +73,8 @@ export default class Square extends React.Component {
           </button>
         </div>
         {this.state.obj.map((v) => (
-          <div key={v.id}>
+          <div key={v.id} className="clic">
             <div
-              className="clic"
               style={{
                 width: `${v.with}px`,
                 height: `${v.height}px`,

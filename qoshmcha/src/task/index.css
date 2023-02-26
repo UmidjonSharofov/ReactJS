@@ -52,6 +52,12 @@ button:hover{
     color: blue;
     transition: all 0.4s linear;
 }
+button:active{
+    transform: scale(1.02);
+    transition: all 0s linear;
+
+
+}
 .number{
     display: flex;
     background-color: blue;

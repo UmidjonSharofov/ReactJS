@@ -1,7 +1,5 @@
 .contener{
-    border: 1px solid black;
     width: 800px;
-    height: 500px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -9,7 +7,6 @@
 }
 .boxes {
     display: flex;
-    border: 1px solid red;
     height: 45%;
     gap: 50px;
 
@@ -68,4 +65,13 @@ button:hover{
     flex-direction: column;    
     align-items: center;
     gap: 8px;
+}
+footer {
+    background-color: #fff;
+      min-height: 135px;
+      border-radius: 5px;
+      padding: 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 }

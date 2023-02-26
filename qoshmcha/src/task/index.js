@@ -5,7 +5,7 @@ export default class Pre extends React.Component {
    constructor(props){
      super(props)
      this.state={
-        inp:null,
+        inp:0,
         inp1:null,
         inp2:null,
         qm:null,
@@ -17,10 +17,9 @@ export default class Pre extends React.Component {
         const {name,value}=e.target
         this.setState({[name]:value})
     }
-    let click =()=>{
-     this.setState({qm:this.state.inp,})
+    let click =(a)=>{
+       this.setState({qm:this.state.inp})
     }
-    console.log(click);
 
     return(
           <div className="contener">
@@ -28,7 +27,7 @@ export default class Pre extends React.Component {
                 <div className="box">
                   <h2>Budget</h2>
                   <input onChange={cang} name="inp" type="number" placeholder="Enter Total Amount"></input>
-                  <button onClick={click}>Set Budget</button>
+                  <button value={true} onClick={click}>Set Budget</button>
                 </div>
                 <div className="box1">
                     <h2>Expenses</h2>
@@ -40,15 +39,16 @@ export default class Pre extends React.Component {
              <div className="number">
                 <div className="num">
                     <h3>Total Budget</h3>
-                    <p>{this.state.qm?this.state.qm:0   }</p>
+                    <p>{this.state.qm?this.state.qm:0}</p>
                 </div>
                 <div className="num">
                 <h3>Expenses</h3>
-                    <p>0</p>
+                <p></p>
+
                 </div>
                 <div className="num">
                 <h3>Balance</h3>
-                    <p>0</p>
+                <p>0</p>
                 </div>
              </div>
              <footer>

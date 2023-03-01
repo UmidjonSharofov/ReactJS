@@ -16,7 +16,7 @@ export default class Task extends React.Component {
       inp1: null,
       inp2: null,
       inp3: null,
-
+      qm:"",
       selec: "name",
       user: null,
     };
@@ -41,8 +41,11 @@ export default class Task extends React.Component {
       this.setState({ [name]: value });
     };
     let add = (a, b, c) => {
-      let res = { id: this.state.obj.length + 1, name: a, status: b, age: c };
-      this.setState({ obj: [...this.state.obj, res] });
+      if(a && b && c>0){
+        let res = { id: this.state.obj.length + 1, name: a, status: b, age: c };
+        this.setState({ obj: [...this.state.obj, res],qm:"" });
+      }
+    else this.setState({...this.state,qm:'Malumotlarni toliq kiriting'})
     };
     let delet = (id) => {
       let res = this.state.obj.filter((v) => v.id !== id);
@@ -168,8 +171,9 @@ export default class Task extends React.Component {
               Add
             </button>
           </div>
+        <h3 className="mal">{this.state.qm}</h3>
         </div>
-        <a href="https://github.com/UmidjonSharofov/ReactJS.git">Github</a>
+        <a href="https://github.com/UmidjonSharofov/ReactJS.git">Github</a> 
       </>
     );
   }

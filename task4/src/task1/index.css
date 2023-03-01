@@ -1,6 +1,7 @@
 body{
     background-image: url(./flat-design-forest-landscape_23-2149155031.avif);
     background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -27,7 +28,7 @@ input::placeholder {
 }
 input:hover, select:hover{
    transform: scale(1.08);
-   color: red;
+  
 }
 .Search {
     display: flex;

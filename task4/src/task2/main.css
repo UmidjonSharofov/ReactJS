@@ -1,0 +1,44 @@
+.nav {
+    margin: 50px 0;
+    position: relative;
+    width: 40%;
+    border: 2px solid rgba(255, 255, 255, .5);
+    top: 100px;
+    left:35% ;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    min-height: 100px;
+}
+
+.inp {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    padding: 20px 30px;
+    gap: 30px  ;
+}
+.inp input {
+    width: 250px;
+    border: 2px solid #162938 ;
+    border-radius: 5px;
+    color: #ffffff;
+}
+.main{
+    padding: 20px 0;
+}
+.main h4 {
+    padding: 5px 30px;
+    color: #ccbcbc;
+}
+.main .img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.img img {
+    height: 200px;
+    padding: 20px 0;
+}

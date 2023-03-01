@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.css";
 let arr = [
-  { id: 1, name: "Islom", status: "oq", age: 20 },
-  { id: 2, name: "Nurmat", status: "", age: 20 },
-  { id: 3, name: "Alisher", status: "", age: 20 },
-  { id: 4, name: "Sherali", status: "", age: 20 },
+  { id: 1, name: "Islom",   status: "Student", age: 20 },
+  { id: 2, name: "Nurmat",  status: "Programmmer", age: 20 },
+  { id: 3, name: "Alisher", status: "Biologist", age: 20 },
+  { id: 4, name: "Sherali", status: "Artist", age: 20 },
 ];
 
 export default class Task extends React.Component {

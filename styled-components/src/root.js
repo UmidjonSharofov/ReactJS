@@ -1,8 +1,7 @@
 import React from "react";
-
-
+import Hero from "./components/Hero";
 export default function Root (){
    return (
-   <h1>a</h1>
+   <Hero/>
    )
 }

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import Header from "./Header/index";
-import Heros from "./index.js";
+import Mian from "./Hero/index";
 class Hero extends Component {
   render() {
     return (
       <div>
-        <Header/>
-        <Heros/>
+        <Header />
+        <Mian />
       </div>
-
     );
   }
 }

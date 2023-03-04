@@ -7,7 +7,7 @@
   list-style: none;
 }
 
-:right {
+:root {
   --primary-green: #3B5D50;
   --primary-yellow: #F9BF29;
   --primary-black: #2F2F2F;
@@ -17,7 +17,7 @@
 
 }
 body {
-  font-family: var(--font-familt);
+  font-family: var(--font-familtW);
 }
 
 h1 {

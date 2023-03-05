@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Container = styled.main`
   width: 100%;
   background-color: var(--primary-green);
+  padding-top: 102px;
 `;
 const Wrapper = styled.div`
   max-width: 1500px;

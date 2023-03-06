@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { ReactComponent as truck } from "../../assets/svg/Truck.svg";
+import { ReactComponent as shop } from "../../assets/svg/Shop bag.svg";
+import { ReactComponent as support } from "../../assets/svg/Support.svg";
+import { ReactComponent as retur } from "../../assets/svg/Return.svg";
 
 const Container = styled.div`
     width: 100%;
@@ -93,6 +97,7 @@ const Divp = styled.div`
   display: flex;
   flex-direction: column;
   gap: 28px;
+  padding: 88px 0;
 p{
     width: 444px;
     font-family: 'Inter';
@@ -102,5 +107,31 @@ p{
     line-height: 24px;
 }
 `
-const Main =styled.div``
-export { Container, Wrapper, Boxes, Product, Box, Product2, P, Pilus, Wrapper2, Divp,Main }
+const Main = styled.div``
+const Text = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 9px;
+p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #6A6A6A;
+  width:400px ;
+}
+`
+const Choose = styled.div`
+display: grid;
+grid-template-columns: repeat(2, 400px);
+gap: 38px;
+`
+const Shop = styled(shop)``
+const Truck = styled(truck)``
+const Support=styled(support)``
+const Return=styled(retur)``
+export { Container, Text, Wrapper, 
+  Boxes,Product, Box, Product2, P,
+  Pilus, Wrapper2, Divp, Main, Truck,
+  Choose, Shop,Support,Return }

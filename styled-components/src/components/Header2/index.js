@@ -16,6 +16,12 @@ import {
   Wrapper2,
   Divp,
   Main,
+  Text,
+  Truck,
+  Choose,
+  Shop,
+  Support,
+  Return
 } from "./main";
 
 class Header2 extends Component {
@@ -65,6 +71,40 @@ class Header2 extends Component {
                 Nulla vivethe as it was for us to know what was to be done. the
               </p>
             </Divp>
+            <Choose>
+              <Text>
+                <Truck />
+                <h3>Fast & Free Shipping </h3>
+                <p>
+                  Donec mattis porta eros, aliquet finibus risus interdum at.
+                  Nulla vivethe as it was
+                </p>
+              </Text>
+              <Text>
+                <Shop />
+                <h3>Fast & Free Shipping </h3>
+                <p>
+                  Donec mattis porta eros, aliquet finibus risus interdum at.
+                  Nulla vivethe as it was
+                </p>
+              </Text>
+              <Text>
+                <Support/>
+                <h3>Fast & Free Shipping </h3>
+                <p>
+                  Donec mattis porta eros, aliquet finibus risus interdum at.
+                  Nulla vivethe as it was
+                </p>
+              </Text>
+              <Text>
+               <Return/>
+                <h3>Fast & Free Shipping </h3>
+                <p>
+                  Donec mattis porta eros, aliquet finibus risus interdum at.
+                  Nulla vivethe as it was
+                </p>
+              </Text>
+            </Choose>
           </Main>
         </Wrapper2>
       </Container>

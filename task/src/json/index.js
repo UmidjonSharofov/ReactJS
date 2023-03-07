@@ -88,8 +88,9 @@ class Fetch extends Component {
       this.setState({ women: res, appliances: null, Jewelry: null, Tv: null });
     };
     let tv = () => {
-      let res = this.state.users.filter((v) => v.id > 12 && v.id < 17);
-      this.setState({ women: res, appliances: null, Jewelry: null });
+      let res = this.state.users.filter((v) => v.id > 16 && v.id <= 20);
+      console.log(res);
+      this.setState({ Tv: res,women:null, appliances: null, Jewelry: null });
     };
     let total = (e) => {
       let res = this.state.users.filter((v) => v.id === e);
@@ -122,8 +123,9 @@ class Fetch extends Component {
             <li onClick={kiyim}>Men's clothing</li>
             <li onClick={jewelry}>Jewelry</li>
             <li onClickCapture={Household}>Household appliances</li>
-            <li onClick={tv}>Clothing va Tv</li>
-            <li onClick={Clothes}>Clothes for women</li>
+            <li onClick={Clothes}>Clothing va Tv</li>
+            <li onClick={tv}>Clothes for women</li>
+            
           </ul>
           <Hisob>
             <i className="fa-solid fa-cart-shopping"></i>
@@ -181,6 +183,20 @@ class Fetch extends Component {
               </div>
             ))}
             {this.state.women?.map((v) => (
+              <div key={v.id}>
+                <div className="box">
+                  <div style={{ width: "10px" }} className="img">
+                    <img className="images" src={v.image} alt={v.title} />
+                  </div>
+                  <div className="bottom">
+                    <p className="maxsulot">{v.title}</p>
+                    <p className="narx">${v.price}</p>
+                  </div>
+                  <button onClick={() => total(v.id)}>add to cart</button>
+                </div>
+              </div>
+            ))}
+             {this.state.Tv?.map((v) => (
               <div key={v.id}>
                 <div className="box">
                   <div style={{ width: "10px" }} className="img">

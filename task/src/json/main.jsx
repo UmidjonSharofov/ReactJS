@@ -7,10 +7,9 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: auto;
-    padding-top: 80px;
-    width: 80%;
+    width: 70%;
     img{
-      width: 180px;
+      width: 120px;
     }
  
 `
@@ -19,6 +18,8 @@ const Div = styled.div`
   color: red;
 `
 const Nav = styled.nav`
+   margin-top: 80px;
+   margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,7 +32,7 @@ const Nav = styled.nav`
   ul{
     display: flex;
     gap: 40px;
-    font-size: 22px;
+    font-size: 20px;
     cursor: pointer;
   }
   ul li:hover{
@@ -69,26 +70,28 @@ const Container2 = styled.div`
   justify-content: space-between;
   `
 const Header = styled.header`
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 
-display: grid;
-grid-template-columns:1fr 1fr;
-text-align: center;
-align-items: center;
-justify-content: center;
-gap: 20px;
-
-
-
+.images {
+  width: 90px;
+}
+p{
+  
+}
 .box{
-      min-height: 550px;
+      min-height: 350px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       border: 1px solid #DAA520;
-       gap: 20px;
-       border-radius: 5px;
-       text-align: center;
+      border-radius: 5px;
+      text-align: center;
 .img{
         width: 100%;
         height: 180px;
@@ -97,29 +100,28 @@ gap: 20px;
         justify-content: center;
        }
 .bottom {
-        margin: 40px 0;
+        margin: 10px 0;
         width: 100%;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 110px;
-        gap: 20px;
+        height: 80px;
+        
        }
-p{
-        font-size: 19px;
-       }
+
 .maxsulot{
         font-size: 18px;
         width: 70%;
-        height: 80px;
+        
        }
 .narx{
         color: red;
-        font-size: 25px;
+        font-size: 20px;
        }
  button {
+        font-size: 18px;
         width: 80%;
         position: relative;
         border: none;
@@ -128,6 +130,7 @@ p{
         padding: 12px 18px;
         cursor: pointer;
         color: white;
+        margin-bottom: 20px;
  }    
  button:hover{
   background-color: #333;
@@ -135,9 +138,33 @@ p{
 }    
 `
 const Cart = styled.div`
-  background-color: #eee;
-  border-radius: 5px;
-  width: 40%;
+     background-color: #eee;
+     border-radius: 5px;
+     width: 40%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 50px;
+     padding: 40px;
+.box {
+     background-color: goldenrod;
+     width: 100%;
+     height: 60px;
+     border-radius: 8px;
+     padding: 15px;
+     font-size: 22px;
+     color: #fff;
+  }
+.total{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  border-top: 2px solid black;
+  padding: 20px;
+  font-size: 22px;
+  color: red;
+}
 `
 
 

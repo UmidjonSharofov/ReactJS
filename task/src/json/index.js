@@ -52,6 +52,9 @@ class Fetch extends Component {
       Jewelry: null,
       appliances: null,
       women: null,
+      Tv:null,
+      Total:0
+
     };
   }
   componentDidMount() {
@@ -60,20 +63,45 @@ class Fetch extends Component {
       .then((json) => this.setState({ users: json }));
   }
   render() {
-    console.log(this.state.men);
     let kiyim = () => {
-      let a = this.state.users.filter((v) => v.id < 10);
-      this.setState({ kiyim: a });
+      this.setState({ Jewelry: null, appliances: null, women: null });
     };
+    let jewelry = () => {
+      let res = this.state.users.filter((v) => v.id > 4 && v.id < 9);
+      this.setState({ Jewelry: res,appliances:null,women:null,Tv:null});
+    };
+    let Household =()=>{
+      let res=this.state.users.filter(v=>v.id>8&&v.id<13)
+      this.setState({appliances:res,Jewelry:null,women:null,Tv:null})
+    }
+    let Clothes =()=>{
+      let res=this.state.users.filter(v=>v.id>12&&v.id<17)
+      this.setState({women:res,appliances:null,Jewelry:null,Tv:null})
+
+    }
+    let total =(e)=>{
+      let res=this.state.users.filter((v)=>v.id===e)
+      let to=res.map((v)=>v.price)
+      to=Number.parseInt(to)
+      console.log(to);
+      this.setState({Total:this.state.Total+ to})
+    }
+    console.log(this.state.Total);
+    let tv=()=>{
+      let res=this.state.users.filter(v=>v.id>12&&v.id<17)
+      this.setState({women:res,appliances:null,Jewelry:null})
+    }
     return (
       <Container>
         <Nav>
           <h1>Logo</h1>
           <ul>
-            <li>Men's clothing</li>
-            <li>Jewelry</li>
-            <li>Household appliances</li>
-            <li>Clothes for women</li>
+            <li onClick={kiyim}>Men's clothing</li>
+            <li onClick={jewelry}>Jewelry</li>
+            <li onClickCapture={Household} >Household appliances</li>
+            <li onClick={tv}>Clothing va Tv</li>
+            <li onClick={Clothes}>Clothes for women</li>
+           
           </ul>
           <Hisob>
             <i className="fa-solid fa-cart-shopping"></i>
@@ -82,28 +110,82 @@ class Fetch extends Component {
         </Nav>
         <Container2>
           <Header>
-            {!this.state.Jewelry &&
-            !this.state.appliances &&
-            !this.state.women ? (
-              this.state.men.map((v) => (
-                <div key={v.id}>
-                  <div className="box">
-                    <div className="img">
-                      <img src={v.image} alt={v.title} />
+            {!this.state.Jewelry&& !this.state.appliances && !this.state.women&&!this.state.Tv
+              ? this.state.men.map((v) => (
+                  <div key={v.id}>
+                    <div className="box">
+                      <div className="img">
+                        <img src={v.image} alt={v.title} />
+                      </div>
+                      <div className="bottom">
+                        <p className="maxsulot">{v.title}</p>
+                        <p className="narx">${v.price}</p>
+                      </div>
+                      <button onClick={()=>total(v.id)}>add to cart</button>
                     </div>
-                    <div className="bottom">
-                      <p className="maxsulot">{v.title}</p>
-                      <p className="narx">${v.price}</p>
-                    </div>
-                    <button>add to cart</button>
                   </div>
-                </div>
-              ))
-            ) : (
-              <p>ss</p>
-            )}
+                ))
+              : ""}
+              
+
+              {
+                this.state.Jewelry?.map(v=>(
+                  <div key={v.id}>
+                    <div className="box">
+                      <div style={{width:'10px'}} className="img">
+                        <img className="images" src={v.image} alt={v.title} />
+                      </div>
+                      <div className="bottom">
+                        <p className="maxsulot">{v.title}</p>
+                        <p className="narx">${v.price}</p>
+                      </div>
+                      <button onClick={()=>total(v.id)}>add to cart</button>
+                    </div>
+                  </div>
+                ))
+              }
+              {
+                this.state.appliances?.map(v=>(
+                  <div key={v.id}>
+                    <div className="box">
+                      <div style={{width:'10px'}} className="img">
+                        <img className="images" src={v.image} alt={v.title} />
+                      </div>
+                      <div className="bottom">
+                        <p className="maxsulot">{v.title}</p>
+                        <p className="narx">${v.price}</p>
+                      </div>
+                      <button onClick={()=>total(v.id)}>add to cart</button>
+                    </div>
+                  </div>
+                ))
+              }
+              {
+                this.state.women?.map(v=>(
+                  <div key={v.id}>
+                    <div className="box">
+                      <div style={{width:'10px'}} className="img">
+                        <img className="images" src={v.image} alt={v.title} />
+                      </div>
+                      <div className="bottom">
+                        <p className="maxsulot">{v.title}</p>
+                        <p className="narx">${v.price}</p>
+                      </div>
+                      <button onClick={()=>total(v.id)}>add to cart</button>
+                    </div>
+                  </div>
+                ))
+              }
           </Header>
-          <Cart>a</Cart>
+          <Cart>
+            <div className="box">
+              <h3>My Cart</h3>
+            </div>
+            <div className="total">
+              <h3>Total</h3>
+              <p>${this.state.Total}</p>
+            </div>
+          </Cart>
         </Container2>
         <h1 onClick={kiyim}>kim</h1>
         {this.state.kiyim ? <Div>{<h1>aaa</h1>}</Div> : ""}
@@ -116,9 +198,9 @@ class Fetch extends Component {
         >
           {this.state.users?.map((v) => (
             <div key={v.id}>
-              {/* <div>
+              <div>
                 <img src={v.image} alt={v.title} />
-              </div> */}
+              </div>
             </div>
           ))}
 

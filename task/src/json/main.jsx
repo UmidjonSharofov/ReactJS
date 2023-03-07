@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container =styled.div`
+const Container = styled.div`
 
     display: flex;
     align-items: center;
@@ -9,15 +9,16 @@ const Container =styled.div`
     margin: auto;
     padding-top: 80px;
     width: 80%;
-  img{
-    width: 100px;
-  }
+    img{
+      width: 180px;
+    }
+ 
 `
-const Div =styled.div`
+const Div = styled.div`
   display: flex;
   color: red;
 `
-const Nav=styled.nav`
+const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +42,7 @@ const Nav=styled.nav`
     font-size: 40px;
   }
 `
-const Hisob =styled.div`
+const Hisob = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -60,7 +61,84 @@ const Hisob =styled.div`
     border-radius: 50%;
   }
 `
-const Container2=styled.div``
+const Container2 = styled.div`
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  gap: 30px;
+  justify-content: space-between;
+  `
+const Header = styled.header`
+
+display: grid;
+grid-template-columns:1fr 1fr;
+text-align: center;
+align-items: center;
+justify-content: center;
+gap: 20px;
 
 
-export {Container,Div,Nav,Hisob}
+
+.box{
+      min-height: 550px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #DAA520;
+       gap: 20px;
+       border-radius: 5px;
+       text-align: center;
+.img{
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+.bottom {
+        margin: 40px 0;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 110px;
+        gap: 20px;
+       }
+p{
+        font-size: 19px;
+       }
+.maxsulot{
+        font-size: 18px;
+        width: 70%;
+        height: 80px;
+       }
+.narx{
+        color: red;
+        font-size: 25px;
+       }
+ button {
+        width: 80%;
+        position: relative;
+        border: none;
+        border-radius:5px;
+        background: goldenrod;
+        padding: 12px 18px;
+        cursor: pointer;
+        color: white;
+ }    
+ button:hover{
+  background-color: #333;
+ }
+}    
+`
+const Cart = styled.div`
+  background-color: #eee;
+  border-radius: 5px;
+  width: 40%;
+`
+
+
+export { Container, Div, Nav, Hisob, Container2, Header, Cart }

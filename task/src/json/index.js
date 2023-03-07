@@ -62,7 +62,7 @@ class Fetch extends Component {
       appliances: null,
       women: null,
       Tv: null,
-      Total: null,
+      Total: 0,
       Cart: obj,
     };
   }
@@ -93,20 +93,26 @@ class Fetch extends Component {
     };
     let total = (e) => {
       let res = this.state.users.filter((v) => v.id === e);
+
       let to = res.map((v) => v.price);
-    
-      this.setState({ Total: this.state.Total +  +to });
+      to = Number.parseInt(to);
+
+      this.setState({ Total: this.state.Total + +to });
       res = res.map((v) => this.setState({ Cart: [...this.state.Cart, v] }));
       console.log(to);
     };
-    let delet=(e)=>{
-       let res=this.state.Cart.filter(v=>v.id!==e)
-       this.setState({...this.start,Cart:res})
-       let to=res.map((v)=>+v.price)
-       to=Number.parseInt(to)
+    let delet = (e) => {
+      let res = this.state.Cart.filter((v) => v.id !== e);
+      this.setState({ ...this.start, Cart: res });
+      let to = res.map((v) => +v.price);
+      to = Number.parseInt(to);
+      this.setState({Total:this.state.Total-to });
       
-       this.setState({ Total: this.state.Total- to });
-    }
+       
+      };
+      if (isNaN(this.state.Total)) {
+        this.setState({ Total:0 });
+      }
 
     return (
       <Container>
@@ -200,14 +206,23 @@ class Fetch extends Component {
                     <img src={v.image} alt={v.title} />
                     <p className="p">{v.title}</p>
                     <p className="color">${v.price}</p>
-                    <i className="fa-solid fa-trash" onClick={()=>delet(v.id)}></i>
+                    <i
+                      className="fa-solid fa-trash"
+                      onClick={() => delet(v.id)}
+                    ></i>
                   </div>
                 </div>
               ))}
             </MyCart>
             <div className="total">
               <h3>Total</h3>
-              <p>${this.state.Total?this.state.Total:0}</p>
+              <p>
+                $
+                {isNaN(this.state.Total)
+                  ? this.state.Total + 1
+                  : this.state.Total}
+              </p>
+              {console.log()}
             </div>
           </Cart>
         </Container2>

@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { Container, Div, Nav, Hisob, Container2, Header, Cart } from "./main";
+import {
+  Container,
+  Nav,
+  Hisob,
+  Container2,
+  Header,
+  Cart,
+  MyCart,
+} from "./main";
+let obj = [];
 class Fetch extends Component {
   constructor(props) {
     super(props);
@@ -52,9 +61,9 @@ class Fetch extends Component {
       Jewelry: null,
       appliances: null,
       women: null,
-      Tv:null,
-      Total:0
-
+      Tv: null,
+      Total: null,
+      Cart: obj,
     };
   }
   componentDidMount() {
@@ -68,29 +77,37 @@ class Fetch extends Component {
     };
     let jewelry = () => {
       let res = this.state.users.filter((v) => v.id > 4 && v.id < 9);
-      this.setState({ Jewelry: res,appliances:null,women:null,Tv:null});
+      this.setState({ Jewelry: res, appliances: null, women: null, Tv: null });
     };
-    let Household =()=>{
-      let res=this.state.users.filter(v=>v.id>8&&v.id<13)
-      this.setState({appliances:res,Jewelry:null,women:null,Tv:null})
-    }
-    let Clothes =()=>{
-      let res=this.state.users.filter(v=>v.id>12&&v.id<17)
-      this.setState({women:res,appliances:null,Jewelry:null,Tv:null})
-
-    }
-    let total =(e)=>{
-      let res=this.state.users.filter((v)=>v.id===e)
-      let to=res.map((v)=>v.price)
-      to=Number.parseInt(to)
+    let Household = () => {
+      let res = this.state.users.filter((v) => v.id > 8 && v.id < 13);
+      this.setState({ appliances: res, Jewelry: null, women: null, Tv: null });
+    };
+    let Clothes = () => {
+      let res = this.state.users.filter((v) => v.id > 12 && v.id < 17);
+      this.setState({ women: res, appliances: null, Jewelry: null, Tv: null });
+    };
+    let tv = () => {
+      let res = this.state.users.filter((v) => v.id > 12 && v.id < 17);
+      this.setState({ women: res, appliances: null, Jewelry: null });
+    };
+    let total = (e) => {
+      let res = this.state.users.filter((v) => v.id === e);
+      let to = res.map((v) => v.price);
+    
+      this.setState({ Total: this.state.Total +  +to });
+      res = res.map((v) => this.setState({ Cart: [...this.state.Cart, v] }));
       console.log(to);
-      this.setState({Total:this.state.Total+ to})
+    };
+    let delet=(e)=>{
+       let res=this.state.Cart.filter(v=>v.id!==e)
+       this.setState({...this.start,Cart:res})
+       let to=res.map((v)=>+v.price)
+       to=Number.parseInt(to)
+      
+       this.setState({ Total: this.state.Total- to });
     }
-    console.log(this.state.Total);
-    let tv=()=>{
-      let res=this.state.users.filter(v=>v.id>12&&v.id<17)
-      this.setState({women:res,appliances:null,Jewelry:null})
-    }
+
     return (
       <Container>
         <Nav>
@@ -98,19 +115,21 @@ class Fetch extends Component {
           <ul>
             <li onClick={kiyim}>Men's clothing</li>
             <li onClick={jewelry}>Jewelry</li>
-            <li onClickCapture={Household} >Household appliances</li>
+            <li onClickCapture={Household}>Household appliances</li>
             <li onClick={tv}>Clothing va Tv</li>
             <li onClick={Clothes}>Clothes for women</li>
-           
           </ul>
           <Hisob>
             <i className="fa-solid fa-cart-shopping"></i>
-            <p>0</p>
+            <p>{this.state.Cart.length}</p>
           </Hisob>
         </Nav>
         <Container2>
           <Header>
-            {!this.state.Jewelry&& !this.state.appliances && !this.state.women&&!this.state.Tv
+            {!this.state.Jewelry &&
+            !this.state.appliances &&
+            !this.state.women &&
+            !this.state.Tv
               ? this.state.men.map((v) => (
                   <div key={v.id}>
                     <div className="box">
@@ -121,97 +140,77 @@ class Fetch extends Component {
                         <p className="maxsulot">{v.title}</p>
                         <p className="narx">${v.price}</p>
                       </div>
-                      <button onClick={()=>total(v.id)}>add to cart</button>
+                      <button onClick={() => total(v.id)}>add to cart</button>
                     </div>
                   </div>
                 ))
               : ""}
-              
 
-              {
-                this.state.Jewelry?.map(v=>(
-                  <div key={v.id}>
-                    <div className="box">
-                      <div style={{width:'10px'}} className="img">
-                        <img className="images" src={v.image} alt={v.title} />
-                      </div>
-                      <div className="bottom">
-                        <p className="maxsulot">{v.title}</p>
-                        <p className="narx">${v.price}</p>
-                      </div>
-                      <button onClick={()=>total(v.id)}>add to cart</button>
-                    </div>
+            {this.state.Jewelry?.map((v) => (
+              <div key={v.id}>
+                <div className="box">
+                  <div style={{ width: "10px" }} className="img">
+                    <img className="images" src={v.image} alt={v.title} />
                   </div>
-                ))
-              }
-              {
-                this.state.appliances?.map(v=>(
-                  <div key={v.id}>
-                    <div className="box">
-                      <div style={{width:'10px'}} className="img">
-                        <img className="images" src={v.image} alt={v.title} />
-                      </div>
-                      <div className="bottom">
-                        <p className="maxsulot">{v.title}</p>
-                        <p className="narx">${v.price}</p>
-                      </div>
-                      <button onClick={()=>total(v.id)}>add to cart</button>
-                    </div>
+                  <div className="bottom">
+                    <p className="maxsulot">{v.title}</p>
+                    <p className="narx">${v.price}</p>
                   </div>
-                ))
-              }
-              {
-                this.state.women?.map(v=>(
-                  <div key={v.id}>
-                    <div className="box">
-                      <div style={{width:'10px'}} className="img">
-                        <img className="images" src={v.image} alt={v.title} />
-                      </div>
-                      <div className="bottom">
-                        <p className="maxsulot">{v.title}</p>
-                        <p className="narx">${v.price}</p>
-                      </div>
-                      <button onClick={()=>total(v.id)}>add to cart</button>
-                    </div>
+                  <button onClick={() => total(v.id)}>add to cart</button>
+                </div>
+              </div>
+            ))}
+            {this.state.appliances?.map((v) => (
+              <div key={v.id}>
+                <div className="box">
+                  <div style={{ width: "10px" }} className="img">
+                    <img className="images" src={v.image} alt={v.title} />
                   </div>
-                ))
-              }
+                  <div className="bottom">
+                    <p className="maxsulot">{v.title}</p>
+                    <p className="narx">${v.price}</p>
+                  </div>
+                  <button onClick={() => total(v.id)}>add to cart</button>
+                </div>
+              </div>
+            ))}
+            {this.state.women?.map((v) => (
+              <div key={v.id}>
+                <div className="box">
+                  <div style={{ width: "10px" }} className="img">
+                    <img className="images" src={v.image} alt={v.title} />
+                  </div>
+                  <div className="bottom">
+                    <p className="maxsulot">{v.title}</p>
+                    <p className="narx">${v.price}</p>
+                  </div>
+                  <button onClick={() => total(v.id)}>add to cart</button>
+                </div>
+              </div>
+            ))}
           </Header>
           <Cart>
             <div className="box">
               <h3>My Cart</h3>
             </div>
+            <MyCart>
+              {this.state.Cart?.map((v) => (
+                <div key={v.id}>
+                  <div className="boxes">
+                    <img src={v.image} alt={v.title} />
+                    <p className="p">{v.title}</p>
+                    <p className="color">${v.price}</p>
+                    <i className="fa-solid fa-trash" onClick={()=>delet(v.id)}></i>
+                  </div>
+                </div>
+              ))}
+            </MyCart>
             <div className="total">
               <h3>Total</h3>
-              <p>${this.state.Total}</p>
+              <p>${this.state.Total?this.state.Total:0}</p>
             </div>
           </Cart>
         </Container2>
-        <h1 onClick={kiyim}>kim</h1>
-        {this.state.kiyim ? <Div>{<h1>aaa</h1>}</Div> : ""}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 300px)",
-            padding: "200px 0",
-          }}
-        >
-          {this.state.users?.map((v) => (
-            <div key={v.id}>
-              <div>
-                <img src={v.image} alt={v.title} />
-              </div>
-            </div>
-          ))}
-
-          {this.state.men?.map((v) => (
-            <div key={v.id}>
-              <div>
-                <img src={v.image} alt={v.title} />
-              </div>
-            </div>
-          ))}
-        </div>
       </Container>
     );
   }

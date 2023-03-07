@@ -8,15 +8,9 @@ const Container = styled.div`
     justify-content: center;
     margin: auto;
     width: 70%;
-    img{
-      width: 120px;
-    }
  
 `
-const Div = styled.div`
-  display: flex;
-  color: red;
-`
+
 const Nav = styled.nav`
    margin-top: 80px;
    margin-bottom: 20px;
@@ -76,6 +70,9 @@ const Header = styled.header`
     align-items: center;
     justify-content: center;
     gap: 20px;
+    img{
+      width: 120px;
+    }
 
 .images {
   width: 90px;
@@ -166,6 +163,39 @@ const Cart = styled.div`
   color: red;
 }
 `
+const MyCart=styled.div`
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 20px;
+.boxes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  .p{
+    font-size: 14px;
+    width: 40%;
+    text-align: center;
+  }
+  .color{
+    color: red;
+    font-size: 20px;
+  }
+  i{
+    color: goldenrod;
+    font-size: 22px;
+    cursor: pointer;
+  }
+}
+ img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 2px solid goldenrod ;
+ }
+`
 
 
-export { Container, Div, Nav, Hisob, Container2, Header, Cart }
+export { Container, Nav, Hisob, Container2, Header, Cart,MyCart }

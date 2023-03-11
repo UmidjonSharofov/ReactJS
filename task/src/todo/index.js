@@ -12,22 +12,26 @@ function Todo() {
     inp: null,
     checked:false
   });
-  let change = (e) => {
+  
+  let changea = (e) => {
     const { value } = e.target;
     setOnchage({ ...onchange, inp: value });
   };
-  const [checkedOne, setCheckedOne] = React.useState(false);
   let click = () => {
     settodo({ ...todo, age: 1 });
   };
-  let checbox =(e)=>{
-      
-  }
+//   let checkbx=(e)=>{
+//     let res =todo.filter(m=>(m.id===e))
+//     res =res.map(v=>v.completed).join("")
+    
+// }
+// console.log(settodo[todo]);
+
   return (
     <Main>
       <div className="main">
         <input
-          onChange={change}
+          onChange={changea}
           type="text"
           placeholder="Create a new todo..."
         />
@@ -38,7 +42,7 @@ function Todo() {
       <Contener>
         {todo.map((v) => (
           <div className="box" key={v.id}>
-            <input onChange={checbox} checked={checkedOne} type="checkbox" /> <p>{v.title}</p>
+            {/* <input onClick={()=>checkbx(v.id)}  type="checkbox" /> <p>{v.title}</p> */}
             <div>
               <button>{"<"}</button>
               <p>{v.p}</p>

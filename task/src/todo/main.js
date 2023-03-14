@@ -10,15 +10,14 @@ const Main=styled.main`
   width: 80%;
   margin: auto;
   .main{
+    display: flex;
     input{
         width: 200px;
     }
   }
 `
 const Contener = styled.div`
-  p{
-    text-decoration: line-through
-  }
+
   display: flex;
   align-items: center;
   justify-content: center;

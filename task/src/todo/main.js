@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Main=styled.main`
-  /* padding: 100px 0;
+  padding: 100px 0;
   margin: 0;
   display: flex;
   align-items: center;
@@ -13,10 +13,10 @@ const Main=styled.main`
     input{
         width: 200px;
     }
-  } */
+  }
 `
 const Contener = styled.div`
-  /* p{
+  p{
     text-decoration: line-through
   }
   display: flex;
@@ -35,7 +35,7 @@ const Contener = styled.div`
     align-items: center;
     margin-left: 30px;
     gap: 10px;
-  } */
+  }
 `;
 
 export { Contener, Main};

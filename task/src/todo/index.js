@@ -22,19 +22,23 @@ function Todo() {
     const { value } = e.target;
     setinpu({ ...inpu, inpu: value });
   };
-  console.log(inpu);
+  let clik =(e)=>{
+     let res ={id:items.length+1,title:e,completed:false}
+     setitmes([...items,res])
+  }
+  console.log(items);
   return (
     <Main>
       <div className="main">
         <input onChange={inp} />
+        <button onClick={()=>clik(inpu.inpu)}>+</button>
       </div>
-      <button>+</button>
       <Contener>
         {items.map((v) => (
           <div key={v.id}>
             <input type={"checkbox"} onChange={(e) => chan(e, v.id)} />
             <p>{v.id}</p>
-            <p>{v.title}</p>
+            <p style={{textDecoration: v.completed&&'line-through' }}>{v.title}</p>
           </div>
         ))}
       </Contener>

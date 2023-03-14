@@ -2,57 +2,43 @@ import React, { useState } from "react";
 import { Contener, Main } from "./main";
 
 function Todo() {
-  const [todo, settodo] = useState([
-    { id: 1, title: "Create the portfolio ", completed: false, p: 1 },
-    { id: 2, title: "Create a new todo...", completed: false, p: 1 },
-    { id: 3, title: "Create a new todo... ", completed: false, p: 1 },
-    { id: 4, title: "Create a new todo... ", completed: false, p: 1 },
+  const [items, setitmes] = useState([
+    { id: 1, title: "Create the portfolio ", completed: false },
+    { id: 2, title: "Create a new todo...", completed: false },
+    { id: 3, title: "Create a new todo... ", completed: false },
+    { id: 4, title: "Create a new todo... ", completed: false },
   ]);
-  const [onchange, setOnchage] = useState({
-    inp: null,
-    checked:false
+  const [inpu, setinpu] = useState({
+    inpu: null,
   });
-  
-  let changea = (e) => {
+  let chan = (e, id) => {
+    const { checked } = e.target;
+    let res = items.map((v) =>
+      v.id === id ? { ...v, completed: checked } : v
+    );
+    setitmes(res);
+  };
+  let inp = (e) => {
     const { value } = e.target;
-    setOnchage({ ...onchange, inp: value });
+    setinpu({ ...inpu, inpu: value });
   };
-  let click = () => {
-    settodo({ ...todo, age: 1 });
-  };
-//   let checkbx=(e)=>{
-//     let res =todo.filter(m=>(m.id===e))
-//     res =res.map(v=>v.completed).join("")
-    
-// }
-// console.log(settodo[todo]);
-
+  console.log(inpu);
   return (
     <Main>
       <div className="main">
-        <input
-          onChange={changea}
-          type="text"
-          placeholder="Create a new todo..."
-        />
-        <button onClick={click}>+</button>
-        <h1>{todo.age}</h1>
-        <h1>{onchange.inp}</h1>
+        <input onChange={inp} />
       </div>
+      <button>+</button>
       <Contener>
-        {todo.map((v) => (
-          <div className="box" key={v.id}>
-            {/* <input onClick={()=>checkbx(v.id)}  type="checkbox" /> <p>{v.title}</p> */}
-            <div>
-              <button>{"<"}</button>
-              <p>{v.p}</p>
-              <button>{">"}</button>
-            </div>
+        {items.map((v) => (
+          <div key={v.id}>
+            <input type={"checkbox"} onChange={(e) => chan(e, v.id)} />
+            <p>{v.id}</p>
+            <p>{v.title}</p>
           </div>
         ))}
       </Contener>
     </Main>
   );
 }
-
 export default Todo;

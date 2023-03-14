@@ -90,7 +90,7 @@ class Fetch extends Component {
     let tv = () => {
       let res = this.state.users.filter((v) => v.id > 16 && v.id <= 20);
       console.log(res);
-      this.setState({ Tv: res,women:null, appliances: null, Jewelry: null });
+      this.setState({ Tv: res, women: null, appliances: null, Jewelry: null });
     };
     let total = (e) => {
       let res = this.state.users.filter((v) => v.id === e);
@@ -100,20 +100,17 @@ class Fetch extends Component {
 
       this.setState({ Total: this.state.Total + +to });
       res = res.map((v) => this.setState({ Cart: [...this.state.Cart, v] }));
-      console.log(to);
     };
     let delet = (e) => {
       let res = this.state.Cart.filter((v) => v.id !== e);
       this.setState({ ...this.start, Cart: res });
       let to = res.map((v) => +v.price);
       to = Number.parseInt(to);
-      this.setState({Total:this.state.Total-to });
-      
-       
-      };
-      if (isNaN(this.state.Total)) {
-        this.setState({ Total:0 });
-      }
+      this.setState({ Total: this.state.Total - to });
+    };
+    if (isNaN(this.state.Total)) {
+      this.setState({ Total: 0 });
+    }
 
     return (
       <Container>
@@ -125,7 +122,6 @@ class Fetch extends Component {
             <li onClickCapture={Household}>Household appliances</li>
             <li onClick={Clothes}>Clothing va Tv</li>
             <li onClick={tv}>Clothes for women</li>
-            
           </ul>
           <Hisob>
             <i className="fa-solid fa-cart-shopping"></i>
@@ -196,7 +192,7 @@ class Fetch extends Component {
                 </div>
               </div>
             ))}
-             {this.state.Tv?.map((v) => (
+            {this.state.Tv?.map((v) => (
               <div key={v.id}>
                 <div className="box">
                   <div style={{ width: "10px" }} className="img">
